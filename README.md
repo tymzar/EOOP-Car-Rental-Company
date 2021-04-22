@@ -1,2 +1,2 @@
-# EOOP-Car-Rental-Company
+# Car-Rental-Company
 Project for Object Oriented Programing
