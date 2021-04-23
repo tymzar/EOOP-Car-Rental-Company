@@ -15,7 +15,7 @@
         Customer * Car::getLastRentee(){ return lastRentee;}
         int Car::getProductionYear(){return productionYear;}
         double Car::getAverageFuelConsumption(){return averageFuelConsumption;}
-        // double Car::getCarRange(){}
+        double Car::getCarRange(){}
 
         void Car::updateCarID(int x){}
         void Car::updateManufacturer(MANUFACTURER x){}
@@ -29,4 +29,4 @@
         void Car::toggleIsRented(){}
         void Car::printData(){}    
 
-        // ostream& operator<<(std::ostream& out, const Car& x){}
+        ostream& operator<<(std::ostream& out, const Car& x){}
