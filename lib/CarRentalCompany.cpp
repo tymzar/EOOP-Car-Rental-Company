@@ -14,10 +14,10 @@
         void CarRentalCompany::removeCustomer(int customerDBID){}
         void CarRentalCompany::removeEmployee(int employeeDBID){}
 
-        // Car* CarRentalCompany::getCar(int carDBID){}
-        // Customer* CarRentalCompany::getCustomer(int customerDBID){}
-        // Employee* CarRentalCompany::getEmployee(int employeeDBID){}
-        // RentalData*CarRentalCompany:: getRentalData(int rentalDataDBID){}
+        Car* CarRentalCompany::getCar(int carDBID){}
+        Customer* CarRentalCompany::getCustomer(int customerDBID){}
+        Employee* CarRentalCompany::getEmployee(int employeeDBID){}
+        RentalRecord* CarRentalCompany:: getRentalData(int rentalDataDBID){}
 
         void CarRentalCompany::updateCar(int carDBID){}
         void CarRentalCompany::updateCustomer(int customerDBID){}
@@ -42,6 +42,6 @@
 
         void CarRentalCompany::printData(DATA_TYPE type, int memberDBID){}
 
-        // ostream& operator<<(ostream& out, const CarRentalCompany& x){}
+        ostream& operator<<(ostream& out, const CarRentalCompany& x){}
 
 

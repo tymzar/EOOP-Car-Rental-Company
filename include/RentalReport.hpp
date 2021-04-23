@@ -3,8 +3,9 @@
 
 using namespace std;
 
-#include <bits/stdc++.h>
-#include "utility.hpp"
+#include <string>
+#include <iostream>
+#include "Utility.hpp"
 #include "RentalReport.hpp"
 
 
@@ -40,7 +41,6 @@ class RentalReport{
         void updateEndPoint(Localization x);
         void updateStartTime(time_t x);
         void updateEndTime(time_t x);
-        void avgTravelledDistance(time_t x);
 
         friend ostream& operator<<(std::ostream& out, const RentalReport& x);
 

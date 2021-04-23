@@ -3,7 +3,6 @@
 
 using namespace std;
 
-#include <bits/stdc++.h>
 
 
 enum MANUFACTURER{
@@ -31,7 +30,7 @@ enum DATA_TYPE{
 };
 
 enum OUT_CUSTOMER{
-    ALL,
+    WHOLE,
     USER_RENTAL_HISTORY,
 };
 

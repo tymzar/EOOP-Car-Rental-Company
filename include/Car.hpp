@@ -1,10 +1,13 @@
+#pragma once
 #ifndef Car_HPP
 #define Car_HPP
 
-#include <bits/stdc++.h>
-#include "utility.hpp"
+#include <string>
+#include <iostream>
+#include "Utility.hpp"
+#include "Customer.hpp"
 
-class Car {
+class Car{
 
     static int carsRented;
 

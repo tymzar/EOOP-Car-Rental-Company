@@ -3,11 +3,15 @@
 
 using namespace std;
 
-#include <bits/stdc++.h>
-#include "utility.hpp"
-#include "Car.hpp"
+#include <list>
+#include <string>
+#include <iostream>
+#include "Utility.hpp"
 #include "Employee.hpp"
 #include "Customer.hpp"
+#include "Car.hpp"
+#include "RentalRecord.hpp"
+
 
 class CarRentalCompany{
     int carsAmount;
@@ -16,7 +20,7 @@ class CarRentalCompany{
     list<Car> Cars;
     list<Customer> Customers;
     list<Employee> Employees;
-    list<RentalData> RentalHistory;
+    list<RentalRecord> RentalHistory;
 
     public:
 
@@ -26,7 +30,7 @@ class CarRentalCompany{
         void addCar(Car& car);
         void addCustomer(Customer& customer);
         void addEmployee(Employee& employee);
-        void addRentalData(RentalData& rentalData);
+        void addRentalData(RentalRecord& rentalData);
 
         void removeCar(int carDBID);
         void removeCustomer(int customerDBID);
@@ -35,7 +39,7 @@ class CarRentalCompany{
         Car* getCar(int carDBID);
         Customer* getCustomer(int customerDBID);
         Employee* getEmployee(int employeeDBID);
-        RentalData* getRentalData(int rentalDataDBID);
+        RentalRecord* getRentalData(int rentalDataDBID);
 
         void updateCar(int carDBID);
         void updateCustomer(int customerDBID);

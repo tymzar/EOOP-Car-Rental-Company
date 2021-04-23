@@ -1,11 +1,14 @@
+#pragma once
 #ifndef Customer_HPP
 #define Customer_HPP
 
 using namespace std;
 
-#include <bits/stdc++.h>
-#include "utility.hpp"
+#include <list>
+#include <string>
+#include <iostream>
 #include "RentalData.hpp"
+#include "Utility.hpp"
 
 class Customer{
 
@@ -30,7 +33,6 @@ class Customer{
         list<RentalData> getUserRentalHistory();
         STATUS getIsAnyRenalActive();
         STATUS getIsAccountActive();
-        Customer * geCustomerAdress();
         void updateUserID(int x);
         void updateUsername(string x);
         void updateName(string x);
