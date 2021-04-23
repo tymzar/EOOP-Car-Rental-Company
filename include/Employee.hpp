@@ -8,6 +8,7 @@ using namespace std;
 
 class Employee{
 
+    static int employeeAmount;
     static Employee * mostCarsFueled;
     string name;
     string surname;
