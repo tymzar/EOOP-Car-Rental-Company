@@ -9,9 +9,9 @@
 
         RentalReport::RentalReport(double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime): travelledDistance(travelledDistance), userCharge(userCharge), usedFuel(usedFuel), startPoint(startPoint), endPoint(endPoint), startTime(startTime), endTime(endTime) {
                 totalRentals++;
-                // updateTotalUserCharge(userCharge);
+                updateTotalUserCharge(userCharge);
                 updateAvgTravelledDistance(travelledDistance);
-                // updateAvgRentalTime();
+                updateAvgRentalTime();
         }
         RentalReport::~RentalReport(){
                 std::cout<< "Rental Report Removed!"<<std::endl;
@@ -90,5 +90,18 @@
                 }           
         }
 
-        std::ostream& operator<<(std::ostream& out, const RentalReport& x){}
+        std::ostream& operator<<(std::ostream& out, const RentalReport& x){
+                const char separator    = ' ';
+                const int nameWidth     = 25;
+                
+                out << std::left<< std::setw(nameWidth) << "Car travelled distace:" << x.travelledDistance << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Fuel burned:" << x.usedFuel << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Customer paid:" << x.userCharge << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Rental started at:" << timeStampToTime(x.startTime) << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Rental ended at:" << timeStampToTime(x.endTime) << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Car started form:" << x.startPoint.latitude << ", " <<x.startPoint.longitude << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Car ended at:"  << x.endPoint.latitude << ", " <<x.endPoint.longitude << std::endl;
+
+                return out;
+        }
 
