@@ -20,7 +20,7 @@ enum MANUFACTURER{
 };
 
 enum STATUS{
-    UNACTIVE,
+    INACTIVE,
     ACTIVE,    
 };
 
