@@ -1,8 +1,6 @@
 #ifndef Employee_HPP
 #define Employee_HPP
 
-using namespace std;
-
 #include <bits/stdc++.h>
 #include "Utility.hpp"
 
@@ -10,8 +8,8 @@ class Employee{
 
     static int employeeAmount;
     static Employee * mostCarsFueled;
-    string name;
-    string surname;
+    std::string name;
+    std::string surname;
     int phoneNumber;
     int employeeID;
     int fueledCars;
@@ -20,20 +18,20 @@ class Employee{
     public:
         Employee();
         ~Employee();
-        string getName();
-        string getSurname();
+        std::string getName();
+        std::string getSurname();
         int getPhoneNumber();
         int getEmployeeID();
         int getFueledCars();
         Localization getCurrentLocalization();
-        void updateName(string x);
-        void updateSurname(string x);
+        void updateName(std::string x);
+        void updateSurname(std::string x);
         void updatePhoneNumber(int x);
         void updateEmployeeID(int x);
         void updateFueledCars(int x);
         void updateCurrentLocalization(Localization x);
 
-        friend ostream& operator<<(std::ostream& out, const Employee& x);
+        friend std::ostream& operator<<(std::ostream& out, const Employee& x);
 };
 
 #endif

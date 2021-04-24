@@ -2,8 +2,6 @@
 #ifndef Customer_HPP
 #define Customer_HPP
 
-using namespace std;
-
 #include <list>
 #include <string>
 #include <iostream>
@@ -14,11 +12,11 @@ class Customer{
 
     static int activeCustomersAmount;
     int userID;
-    string usename;
-    string name;
-    string surname;
+    std::string usename;
+    std::string name;
+    std::string surname;
     double accountBalace;
-    list<RentalData> userRentalHistory;
+    std::list<RentalData> userRentalHistory;
     STATUS isAnyRenalActive;
     STATUS isAccountActive;
 
@@ -26,17 +24,17 @@ class Customer{
         Customer();
         ~Customer();
         int getUserID();
-        string getUsername();
-        string getName();
-        string getSurname();
+        std::string getUsername();
+        std::string getName();
+        std::string getSurname();
         double getAccountBalace();
-        list<RentalData> getUserRentalHistory();
+        std::list<RentalData> getUserRentalHistory();
         STATUS getIsAnyRenalActive();
         STATUS getIsAccountActive();
         void updateUserID(int x);
-        void updateUsername(string x);
-        void updateName(string x);
-        void updateSurname(string x);
+        void updateUsername(std::string x);
+        void updateName(std::string x);
+        void updateSurname(std::string x);
         void updateAccountBalace(double x);
         void updateUserRentalHistory(RentalData& x);
         void toggleIsAnyRenalActive();
@@ -45,9 +43,9 @@ class Customer{
         void printAllCustomerData(); // all data + last rental
         void printUserRentalHistory();
         void printData(OUT_CUSTOMER type);
-        void outData(ostream& out);
+        void outData(std::ostream& out);
         
-        friend ostream& operator<<(ostream& out, const Customer& x);
+        friend std::ostream& operator<<(std::ostream& out, const Customer& x);
 };
 
 #endif

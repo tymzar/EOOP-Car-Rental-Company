@@ -1,8 +1,6 @@
 #ifndef RentalReport_HPP
 #define RentalReport_HPP
 
-using namespace std;
-
 #include <string>
 #include <iostream>
 #include "Utility.hpp"
@@ -42,7 +40,7 @@ class RentalReport{
         void updateStartTime(time_t x);
         void updateEndTime(time_t x);
 
-        friend ostream& operator<<(std::ostream& out, const RentalReport& x);
+        friend std::ostream& operator<<(std::ostream& out, const RentalReport& x);
 
 };
 

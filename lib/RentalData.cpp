@@ -11,5 +11,5 @@
         void RentalData::notifyNearestEmployee(){}
         void RentalData::notifyCustomer(){}
 
-        ostream& operator<<(std::ostream& out, const RentalData& x){}
+        std::ostream& operator<<(std::ostream& out, const RentalData& x){}
 

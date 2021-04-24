@@ -2,8 +2,6 @@
 #ifndef RentalRecord_HPP
 #define RentalRecord_HPP
 
-using namespace std;
-
 #include <string>
 #include <iostream>
 #include "Utility.hpp"
@@ -23,7 +21,7 @@ class RentalRecord: public RentalData{
         void updateRentedCar(Car * x){}
         void updateRentee(Customer * x){}
 
-        friend ostream& operator<<(std::ostream& out, const RentalRecord& x){}
+        friend std::ostream& operator<<(std::ostream& out, const RentalRecord& x){}
 };
 
 #endif

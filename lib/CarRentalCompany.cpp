@@ -2,7 +2,7 @@
 
 
 
-        CarRentalCompany::CarRentalCompany(){ cout << "CRC works!"<<endl;}
+        CarRentalCompany::CarRentalCompany(){ std::cout << "CRC works!"<<std::endl;}
         CarRentalCompany::~CarRentalCompany(){}
 
         void CarRentalCompany::addCar(Car& car){}
@@ -28,11 +28,11 @@
         void CarRentalCompany::removeData(DATA_TYPE type, int memberDBID){}
         void CarRentalCompany::updateData(DATA_TYPE type, int memberDBID){}
         
-        void CarRentalCompany::saveData(string path){}
-        void CarRentalCompany::loadData(DATA_TYPE type, string path){}
+        void CarRentalCompany::saveData(std::string path){}
+        void CarRentalCompany::loadData(DATA_TYPE type, std::string path){}
 
         void CarRentalCompany::findData(DATA_TYPE type, int memberDBID){}
-        void CarRentalCompany::outData(ostream& out){}
+        void CarRentalCompany::outData(std::ostream& out){}
 
         void CarRentalCompany::exportStatisticsToXLSX(){}
         void CarRentalCompany::getStatistics(){}
@@ -42,6 +42,6 @@
 
         void CarRentalCompany::printData(DATA_TYPE type, int memberDBID){}
 
-        ostream& operator<<(ostream& out, const CarRentalCompany& x){}
+        std::ostream& operator<<(std::ostream& out, const CarRentalCompany& x){}
 
 

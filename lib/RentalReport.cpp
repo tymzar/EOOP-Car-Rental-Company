@@ -17,5 +17,5 @@
         void RentalReport::updateStartTime(time_t x){}
         void RentalReport::updateEndTime(time_t x){}
 
-        ostream& operator<<(std::ostream& out, const RentalReport& x){}
+        std::ostream& operator<<(std::ostream& out, const RentalReport& x){}
 

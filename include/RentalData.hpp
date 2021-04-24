@@ -2,8 +2,6 @@
 #ifndef RentalData_HPP
 #define RentalData_HPP
 
-using namespace std;
-
 #include <string>
 #include <iostream>
 #include "Utility.hpp"
@@ -26,7 +24,7 @@ class RentalData{
         void notifyNearestEmployee();
         void notifyCustomer();
 
-        friend ostream& operator<<(std::ostream& out, const RentalData& x);
+        friend std::ostream& operator<<(std::ostream& out, const RentalData& x);
 
 
 };

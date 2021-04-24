@@ -14,23 +14,24 @@ class Car{
     int carID;
 
     MANUFACTURER manufacturer;
-    string model;
-    string VINnumber;
+    std::string model;
+    std::string VINnumber;
     STATUS isRented;
     time_t technicalReview;
     time_t lastRented;
     Customer * lastRentee;
     int productionYear;
+    double fuelLevel;
     double averageFuelConsumption;
 
     public:
 
-        Car();
+        Car(std::string model, std::string VINnumber, STATUS isRented, time_t lastRented, Customer * lastRentee, double averageFuelConsumption);
         ~Car();
 
         int getCarID();
         MANUFACTURER getManufacturer();
-        string getModel();
+        std::string getModel();
         STATUS getIsRented();
         time_t getTechnicalReview();
         time_t getLastRented();
@@ -41,7 +42,7 @@ class Car{
 
         void updateCarID(int x);
         void updateManufacturer(MANUFACTURER x);
-        void updateModel(string x);
+        void updateModel(std::string x);
         void updateTechnicalReview(time_t x);
         void updateLastRented(time_t x);
         void updateLastRentee(Customer x);
@@ -51,7 +52,7 @@ class Car{
         void toggleIsRented();
         void printData();    
 
-        friend ostream& operator<<(std::ostream& out, const Car& x);
+        friend std::ostream& operator<<(std::ostream& out, const Car& x);
 
 };
 

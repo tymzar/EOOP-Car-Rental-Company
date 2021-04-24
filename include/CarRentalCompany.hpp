@@ -1,8 +1,6 @@
 #ifndef CarRentalCompany_HPP
 #define CarRentalCompany_HPP
 
-using namespace std;
-
 #include <list>
 #include <string>
 #include <iostream>
@@ -17,10 +15,10 @@ class CarRentalCompany{
     int carsAmount;
     int customersAmount;
 
-    list<Car> Cars;
-    list<Customer> Customers;
-    list<Employee> Employees;
-    list<RentalRecord> RentalHistory;
+    std::list<Car> Cars;
+    std::list<Customer> Customers;
+    std::list<Employee> Employees;
+    std::list<RentalRecord> RentalHistory;
 
     public:
 
@@ -50,15 +48,15 @@ class CarRentalCompany{
         void removeData(DATA_TYPE type, int memberDBID);
         void updateData(DATA_TYPE type, int memberDBID);
         
-        void saveData(string path);
-        void loadData(DATA_TYPE type, string path);
+        void saveData(std::string path);
+        void loadData(DATA_TYPE type, std::string path);
 
         void findData(DATA_TYPE type, int memberDBID);
 
 
 
 
-        void outData(ostream& out);
+        void outData(std::ostream& out);
 
         void exportStatisticsToXLSX();
         void getStatistics();
@@ -67,7 +65,7 @@ class CarRentalCompany{
 
 
         void printData(DATA_TYPE type, int memberDBID);
-        friend ostream& operator<<(ostream& out, const CarRentalCompany& x);
+        friend std::ostream& operator<<(std::ostream& out, const CarRentalCompany& x);
 };
 
 #endif
