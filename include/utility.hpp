@@ -1,9 +1,9 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
 
-using namespace std;
-
-
+#include <iostream>
+#include <string>
+#include <ctime>
 
 enum MANUFACTURER{
     AUDI,
@@ -38,5 +38,9 @@ typedef struct{
     double longitude;
     double latitude;
 } Localization;
+
+    bool validateVINnumber(std::string VINnumber);
+
+    std::string timeStampToTime(const time_t rawtime);
 
 #endif
