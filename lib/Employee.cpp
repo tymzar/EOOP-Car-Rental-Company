@@ -4,9 +4,16 @@
         int Employee::totalCarsFueled = 0;
         Employee * Employee::mostCarsFueled = nullptr;
 
-        Employee::Employee(){}
-        Employee::~Employee(){}
-        
+        Employee::Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars, Localization currentLocalization): name(name), surname(surname), phoneNumber(phoneNumber), employeeID(employeeAmount+1), fueledCars(fueledCars), currentLocalization(currentLocalization) {
+                employeeAmount++;
+                std::cout << "Employee hired!" <<std::endl;
+
+        }
+        Employee::~Employee(){
+                employeeAmount--;
+                std::cout << "Employee fired!" <<std::endl;
+        }
+
         std::string Employee::getName(){
                 return name;
         }
@@ -30,6 +37,8 @@
                 this->phoneNumber = x;
         }
         void Employee::updateFueledCars(int x){
+                int temp = this->fueledCars;
+                totalCarsFueled -= temp;
                 this->fueledCars += x;
                 totalCarsFueled += x;
         }
@@ -37,4 +46,16 @@
                 this->currentLocalization = x;
         }
 
-        std::ostream& operator<<(std::ostream& out, const Employee& x){}
+        std::ostream& operator<<(std::ostream& out, const Employee& x){
+                const char separator    = ' ';
+                const int nameWidth     = 25;
+                
+                out << std::left<< std::setw(nameWidth) << "Employee name:" << x.name << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Employee surname:" << x.surname << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Employee phone number:" << x.phoneNumber << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Cars employee fueled:" << x.fueledCars << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Employee localization:" << x.currentLocalization.latitude << ", " <<x.currentLocalization.longitude << std::endl;
+
+
+                return out;
+        }
