@@ -10,7 +10,7 @@ class Employee{
     static Employee * mostCarsFueled;
     std::string name;
     std::string surname;
-    int phoneNumber;
+    std::string phoneNumber;
     int employeeID;
     int fueledCars;
     Localization currentLocalization;
@@ -20,13 +20,13 @@ class Employee{
         ~Employee();
         std::string getName();
         std::string getSurname();
-        int getPhoneNumber();
+        std::string getPhoneNumber();
         int getEmployeeID();
         int getFueledCars();
         Localization getCurrentLocalization();
         void updateName(std::string x);
         void updateSurname(std::string x);
-        void updatePhoneNumber(int x);
+        void updatePhoneNumber(std::string x);
         void updateEmployeeID(int x);
         void updateFueledCars(int x);
         void updateCurrentLocalization(Localization x);
