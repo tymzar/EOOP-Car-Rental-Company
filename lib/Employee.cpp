@@ -6,10 +6,19 @@
 
         Employee::Employee(){}
         Employee::~Employee(){}
-        std::string Employee::getName(){}
-        std::string Employee::getSurname(){}
-        std::string Employee::getPhoneNumber(){}
-        int Employee::getFueledCars(){}
+        
+        std::string Employee::getName(){
+                return name;
+        }
+        std::string Employee::getSurname(){
+                return surname;
+        }
+        std::string Employee::getPhoneNumber(){
+                return phoneNumber;
+        }
+        int Employee::getFueledCars(){
+                return fueledCars;
+        }
         Localization Employee::getCurrentLocalization(){}
         void Employee::updateName(std::string x){
                 this->name = x;
@@ -22,6 +31,7 @@
         }
         void Employee::updateFueledCars(int x){
                 this->fueledCars += x;
+                totalCarsFueled += x;
         }
         void Employee::updateCurrentLocalization(Localization x){
                 this->currentLocalization = x;

@@ -7,6 +7,7 @@
 class Employee{
 
     static int employeeAmount;
+    static int totalCarsFueled;
     static Employee * mostCarsFueled;
     std::string name;
     std::string surname;
@@ -27,7 +28,6 @@ class Employee{
         void updateName(std::string x);
         void updateSurname(std::string x);
         void updatePhoneNumber(std::string x);
-        void updateEmployeeID(int x);
         void updateFueledCars(int x);
         void updateCurrentLocalization(Localization x);
 
