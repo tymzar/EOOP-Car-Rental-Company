@@ -17,7 +17,7 @@ class Employee{
     Localization currentLocalization;
 
     public:
-        Employee();
+        Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars, Localization currentLocalization);
         ~Employee();
         std::string getName();
         std::string getSurname();
