@@ -1,5 +1,7 @@
 #include "../include/Employee.hpp"
 
+        int Employee::employeeAmount = 0;
+        Employee * Employee::mostCarsFueled = nullptr;
 
         Employee::Employee(){}
         Employee::~Employee(){}
