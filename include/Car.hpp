@@ -6,7 +6,6 @@
 #include <iostream>
 #include "Utility.hpp"
 #include "Customer.hpp"
-
 class Car{
 
     static int carsRented;
@@ -14,8 +13,8 @@ class Car{
     int carID;
 
     MANUFACTURER manufacturer;
-    std::string model;
-    std::string VINnumber;
+    std::string* model;
+    std::string* VINnumber;
     STATUS isRented;
     time_t technicalReview;
     time_t lastRented;
@@ -38,19 +37,19 @@ class Car{
         Customer * getLastRentee();
         int getProductionYear();
         double getAverageFuelConsumption();
-        double getCarRange();
+        double getCarRange() const;
 
         void updateCarID(int x);
         void updateManufacturer(MANUFACTURER x);
         void updateModel(std::string x);
         void updateTechnicalReview(time_t x);
         void updateLastRented(time_t x);
-        void updateLastRentee(Customer x);
+        void updateLastRentee(Customer * x);
         void updateProductionYear(int x);
         void updateAverageFuelConsumption(double x);
        
         void toggleIsRented();
-        void printData();    
+        void printData(std::ostream& out, const Car& x) const;    
 
         friend std::ostream& operator<<(std::ostream& out, const Car& x);
 
