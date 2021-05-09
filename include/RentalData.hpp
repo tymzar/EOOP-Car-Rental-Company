@@ -9,17 +9,18 @@
 
 class RentalData{
 
+    static int totalRentals;
     int rentalDataID;
     STATUS rentalStatus;
     RentalReport * rentalDetails;
 
     public:
-        RentalData();
+        RentalData(STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime);
         ~RentalData();
         int getRentalDataID();
         STATUS getRentalStatus();
         RentalReport * getRentalDetails();
-        void updateRentalDetails(RentalReport *);
+        void updateRentalDetails(RentalReport * x);
         void toggleRentalStatus();
         void notifyNearestEmployee();
         void notifyCustomer();
