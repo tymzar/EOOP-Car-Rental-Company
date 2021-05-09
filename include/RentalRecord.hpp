@@ -1,4 +1,3 @@
-#pragma once
 #ifndef RentalRecord_HPP
 #define RentalRecord_HPP
 
@@ -14,14 +13,17 @@ class RentalRecord: public RentalData{
     Customer * rentee;
 
     public:
-        RentalRecord(){}
-        ~RentalRecord(){}
-        Car * getRentedCar(){}
-        Customer * getRentee(){}
-        void updateRentedCar(Car * x){}
-        void updateRentee(Customer * x){}
+        RentalRecord(  Car * rentedCar, Customer * rentee,STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime): RentalData(rentalStatus,travelledDistance,  userCharge,  usedFuel,  startPoint, endPoint,  startTime,  endTime){
+            this->rentedCar = rentedCar;
+            this->rentee = rentee;
+        }
+        ~RentalRecord();
+        Car * getRentedCar();
+        Customer * getRentee();
+        void updateRentedCar(Car * x);
+        void updateRentee(Customer * x);
 
-        friend std::ostream& operator<<(std::ostream& out, const RentalRecord& x){}
+        friend std::ostream& operator<<(std::ostream& out, const RentalRecord& x);
 };
 
 #endif
