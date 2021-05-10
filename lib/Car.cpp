@@ -56,7 +56,9 @@
                         this->isRented = (STATUS)0;
                 }
         }
-        void Car::printData(std::ostream& out, const Car& x) const{
+ 
+
+        std::ostream& operator<<(std::ostream& out, const Car& x){
 
                 const char separator    = ' ';
                 const int nameWidth     = 25;
@@ -67,29 +69,26 @@
 
                 while(print_type = getchar())
                 {
+                        getchar();
+                        
                         if( print_type == 'D' || print_type == 'd'){
-                        out << std::left<< std::setw(nameWidth) << "Car manufacturer:" << x.manufacturer << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Car model:" << x.model << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Car VIN number:" << x.VINnumber << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Car Production year:" << x.productionYear << std::endl;     
-                        break;
+                                out << std::left<< std::setw(nameWidth) << "Car manufacturer:" << x.manufacturer << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Car model:" << *x.model << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Car VIN number:" << *x.VINnumber << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Car Production year:" << x.productionYear << std::endl;     
+                                break;
                         }else if( print_type == 'S' || print_type == 's'){
-                        out << std::left<< std::setw(nameWidth) << "Car rental status:" << (STATUS)x.isRented << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Next technical review:" << timeStampToTime(x.technicalReview) << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Car range:" << x.getCarRange() << std::endl;  
-                        out << std::left<< std::setw(nameWidth) << "Last var rental time" <<  timeStampToTime(x.lastRented) << std::endl;
-                        out << std::left<< std::setw(nameWidth) << "Last car rentee:" << x.lastRentee->getUsername() << std::endl;  
+                                out << std::left<< std::setw(nameWidth) << "Car rental status:" << (STATUS)x.isRented << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Next technical review:" << timeStampToTime(x.technicalReview) << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Car range:" << x.getCarRange() << "km" << std::endl;  
+                                out << std::left<< std::setw(nameWidth) << "Last var rental time" <<  timeStampToTime(x.lastRented) << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Last car rentee:" << x.lastRentee->getUsername() << std::endl;  
+                                break;
                         }else{
                                 std::cout << "Input proper character! "<<std::endl;
                                 std::cout << "Enter 'D' for Car Deatils and 'S' for Car Status: (D/S)";
                         }
                 }
-
-        }    
-
-        std::ostream& operator<<(std::ostream& out, const Car& x){
-
-                x.printData(out, x);
 
                 return out;
         }

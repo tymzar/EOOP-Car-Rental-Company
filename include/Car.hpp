@@ -47,9 +47,7 @@ class Car{
         void updateLastRentee(Customer * x);
         void updateProductionYear(int x);
         void updateAverageFuelConsumption(double x);
-       
         void toggleIsRented();
-        void printData(std::ostream& out, const Car& x) const;    
 
         friend std::ostream& operator<<(std::ostream& out, const Car& x);
 

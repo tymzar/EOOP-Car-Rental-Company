@@ -22,7 +22,6 @@ class RentalData{
         RentalReport * getRentalDetails();
         void updateRentalDetails(RentalReport * x);
         void toggleRentalStatus();
-        void notifyNearestEmployee();
         void notifyCustomer();
 
         friend std::ostream& operator<<(std::ostream& out, const RentalData& x);
