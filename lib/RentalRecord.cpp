@@ -19,31 +19,31 @@
         }
 
         std::ostream& operator<<(std::ostream& out, RentalRecord& x){
-
-                const char separator    = ' ';
                 const int nameWidth     = 25;
                 
                 char print_type = '\0';
 
                 std::cout << "Enter 'O' for Rental Data overview and 'R' for Rental Report: (O/R)";
 
-                while(print_type = getchar())
+                while((print_type = getchar()))
                 {
-                        // getchar();
+                        getchar();
                         
-                        // if( print_type == 'D' || print_type == 'd'){
-                        //         out << std::left<< std::setw(nameWidth) << "Rental ID:" << x.getRentalDataID() << std::endl;
-                        //         out << std::left<< std::setw(nameWidth) << "Rental Status:" << x.get << std::endl;
-                        //         out << std::left<< std::setw(nameWidth) << "Rental Details:" << x.rentalDetails->getUserCharge() << "EUR..." << std::endl;   
-                        //         break;
-                        // }else if( print_type == 'S' || print_type == 's'){
-                        //         out << std::left<< std::setw(nameWidth) << "Rental Report:" << std::endl;
-                        //         out << x.rentalDetails;
-                        //         break;
-                        // }else{
-                        //         std::cout << "Input proper character! "<<std::endl;
-                        //         std::cout << "Enter 'D' for Car Deatils and 'S' for Car Status: (D/S)";
-                        // }
+                        if( print_type == 'O' || print_type == 'o'){
+                                out << std::left<< std::setw(nameWidth) << "Rental ID:" << x.getRentalDataID() << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Rental Status:" << x.getRentalStatus() << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Rental Details:" << x.getRentalDetails()->getUserCharge() << "EUR..." << std::endl;   
+                                out << std::left<< std::setw(nameWidth) << "Rental Rentee:" << x.getRentee()->getName() << " " << x.getRentee()->getSurname() << std::endl;   
+                                out << std::left<< std::setw(nameWidth) << "Rental Car:" <<  x.getRentedCar()->getModel() << std::endl;   
+                                break;
+                        }else if( print_type == 'R' || print_type == 'r'){
+                                out << std::left<< std::setw(nameWidth) << "Rental Report:" << std::endl;
+                                out << *x.getRentalDetails();
+                                break;
+                        }else{
+                                std::cout << "Input proper character! "<<std::endl;
+                                std::cout << "Enter 'O' for Rental Data overview and 'R' for Rental Report: (O/R)";
+                        }
                 }
                 return out;
         }

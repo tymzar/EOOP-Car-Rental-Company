@@ -6,12 +6,9 @@
 
         Employee::Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars, Localization currentLocalization): name(name), surname(surname), phoneNumber(phoneNumber), employeeID(employeeAmount+1), fueledCars(fueledCars), currentLocalization(currentLocalization) {
                 employeeAmount++;
-                std::cout << "Employee hired!" <<std::endl;
-
         }
         Employee::~Employee(){
                 employeeAmount--;
-                std::cout << "Employee fired!" <<std::endl;
         }
 
         std::string Employee::getName(){
@@ -20,13 +17,15 @@
         std::string Employee::getSurname(){
                 return surname;
         }
-        std::string Employee::getPhoneNumber(){
+        std::string Employee::getPhoneNumber()const{
                 return phoneNumber;
         }
         int Employee::getFueledCars(){
                 return fueledCars;
         }
-        Localization Employee::getCurrentLocalization(){}
+        Localization Employee::getCurrentLocalization(){
+                return currentLocalization;
+        }
         void Employee::updateName(std::string x){
                 this->name = x;
         }
@@ -46,8 +45,15 @@
                 this->currentLocalization = x;
         }
 
+        bool Employee::operator==(const Employee& x){
+                if( phoneNumber == x.phoneNumber){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
+
         std::ostream& operator<<(std::ostream& out, const Employee& x){
-                const char separator    = ' ';
                 const int nameWidth     = 25;
                 
                 out << std::left<< std::setw(nameWidth) << "Employee name:" << x.name << std::endl;

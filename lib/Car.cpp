@@ -1,9 +1,9 @@
 #include "../include/Car.hpp"
 
+        int Car::carsRented = 0;
 
 
-
-        Car::Car(std::string model, std::string VINnumber, STATUS isRented, time_t lastRented, Customer * lastRentee, double averageFuelConsumption): manufacturer(manufacturer), isRented(isRented), lastRented(lastRented), lastRentee(lastRentee),fuelLevel(100.0), averageFuelConsumption(averageFuelConsumption) 
+        Car::Car(MANUFACTURER manufacturer, std::string model, std::string VINnumber, STATUS isRented, time_t lastRented, Customer * lastRentee, double averageFuelConsumption): manufacturer(manufacturer), isRented(isRented), lastRented(lastRented), lastRentee(lastRentee),fuelLevel(100.0), averageFuelConsumption(averageFuelConsumption) 
         {
                 this->model = new std::string(model);
                 this->VINnumber = new std::string(VINnumber);
@@ -15,9 +15,9 @@
                 delete VINnumber;
         }
         
-        int Car::getCarID(){return carID;}
         MANUFACTURER Car::getManufacturer(){return manufacturer;}
         std::string Car::getModel(){return *model;}
+        std::string Car::getVIN()const{return *VINnumber;}
         STATUS Car::getIsRented(){return isRented;}
         time_t Car::getTechnicalReview(){return technicalReview;}
         time_t Car::getLastRented(){ return lastRented;}
@@ -28,7 +28,6 @@
                 return (this->fuelLevel / this->averageFuelConsumption) * 100;
         }
 
-        void Car::updateCarID(int x){}
         void Car::updateManufacturer(MANUFACTURER x){
                 this->manufacturer = x;
         }
@@ -57,17 +56,22 @@
                 }
         }
  
+        bool Car::operator==(const Car& x){
+                if( VINnumber == x.VINnumber){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
 
         std::ostream& operator<<(std::ostream& out, const Car& x){
-
-                const char separator    = ' ';
                 const int nameWidth     = 25;
                 
                 char print_type = '\0';
 
                 std::cout << "Enter 'D' for Car Deatils and 'S' for Car Status: (D/S)";
 
-                while(print_type = getchar())
+                while((print_type = getchar()))
                 {
                         getchar();
                         
@@ -81,9 +85,7 @@
                                 out << std::left<< std::setw(nameWidth) << "Car rental status:" << (STATUS)x.isRented << std::endl;
                                 out << std::left<< std::setw(nameWidth) << "Next technical review:" << timeStampToTime(x.technicalReview) << std::endl;
                                 out << std::left<< std::setw(nameWidth) << "Car range:" << x.getCarRange() << "km" << std::endl;  
-                                out << std::left<< std::setw(nameWidth) << "Last var rental time" <<  timeStampToTime(x.lastRented) << std::endl;
-                                out << std::left<< std::setw(nameWidth) << "Last car rentee:" << x.lastRentee->getUsername() << std::endl;  
-                                break;
+                                out << std::left<< std::setw(nameWidth) << "Last var rental time" <<  timeStampToTime(x.lastRented) << std::endl;                                break;
                         }else{
                                 std::cout << "Input proper character! "<<std::endl;
                                 std::cout << "Enter 'D' for Car Deatils and 'S' for Car Status: (D/S)";

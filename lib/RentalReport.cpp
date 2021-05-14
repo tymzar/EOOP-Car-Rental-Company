@@ -234,7 +234,6 @@
          * @return ostream& 
          */
         std::ostream& operator<<(std::ostream& out, const RentalReport& x){
-                const char separator    = ' ';
                 const int nameWidth     = 25;
                 
                 out << std::left<< std::setw(nameWidth) << "Car travelled distace:" << x.travelledDistance << std::endl;
