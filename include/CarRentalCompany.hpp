@@ -30,19 +30,17 @@ class CarRentalCompany{
         void addEmployee(Employee& employee);
         void addRentalData(RentalRecord& rentalData);
 
-        void removeCar(int carDBID);
-        void removeCustomer(int customerDBID);
-        void removeEmployee(int employeeDBID);
+        void removeCar(std::string VINnumber);
+        void removeCustomer(std::string username);
+        void removeEmployee(std::string phoneNumber);
 
-        Car* getCar(int carDBID);
-        Customer* getCustomer(int customerDBID);
-        Employee* getEmployee(int employeeDBID);
-        RentalRecord* getRentalData(int rentalDataDBID);
+        Car getCar(std::string VINnumber);
+        Customer getCustomer(std::string username);
+        Employee getEmployee(std::string phoneNumber);
 
-        void updateCar(int carDBID);
-        void updateCustomer(int customerDBID);
-        void updateEmployee(int employeeDBID);
-        void updateRentalData(int rentalDataDBID);
+        void updateCar(std::string VINnumber, Car& car);
+        void updateCustomer(std::string username, Customer& customer);
+        void updateEmployee(std::string phoneNumber, Employee& rentalData);
 
         void addData(DATA_TYPE type);
         void removeData(DATA_TYPE type, int memberDBID);
@@ -58,14 +56,13 @@ class CarRentalCompany{
 
         void outData(std::ostream& out);
 
-        void exportStatisticsToXLSX();
-        void getStatistics();
+        // void exportStatisticsToXLSX();
+        // void getStatistics();
         int returnNumberOfCars();
         int returnNumberOfCustomers();
 
 
         void printData(DATA_TYPE type, int memberDBID);
-        friend std::ostream& operator<<(std::ostream& out, const CarRentalCompany& x);
-};
+        };
 
 #endif

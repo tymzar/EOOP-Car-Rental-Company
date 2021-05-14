@@ -18,6 +18,7 @@ enum MANUFACTURER{
     FORD,
     HONDA,
     VOLKSWAGEN,
+    TESLA,
 
 };
 

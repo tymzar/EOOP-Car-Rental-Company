@@ -21,7 +21,7 @@ class Employee{
         ~Employee();
         std::string getName();
         std::string getSurname();
-        std::string getPhoneNumber();
+        std::string getPhoneNumber()const;
         int getEmployeeID();
         int getFueledCars();
         Localization getCurrentLocalization();
@@ -31,6 +31,7 @@ class Employee{
         void updateFueledCars(int x);
         void updateCurrentLocalization(Localization x);
 
+        bool operator==(const Employee& x);
         friend std::ostream& operator<<(std::ostream& out, const Employee& x);
 };
 
