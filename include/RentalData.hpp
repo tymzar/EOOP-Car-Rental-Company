@@ -15,11 +15,11 @@ class RentalData{
     RentalReport * rentalDetails;
 
     public:
-        RentalData(STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime);
+        RentalData(STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, time_t startTime, time_t endTime);
         ~RentalData();
-        int getRentalDataID();
-        STATUS getRentalStatus();
-        RentalReport * getRentalDetails();
+        int getRentalDataID()const;
+        STATUS getRentalStatus()const;
+        RentalReport * getRentalDetails()const;
         void updateRentalDetails(RentalReport * x);
         void toggleRentalStatus();
 

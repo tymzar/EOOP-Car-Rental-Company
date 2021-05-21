@@ -21,7 +21,7 @@ DEL = del
 EXE = .exe
 WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
 
-all: $(APPNAME)
+all: $(APPNAME) clean
 
 # Builds the app
 $(APPNAME): $(OBJ)

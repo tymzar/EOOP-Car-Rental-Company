@@ -1,11 +1,12 @@
 
 #include "../include/Customer.hpp"
 
+        int Customer::activeCustomersAmount = 0;
 
         Customer::Customer(std::string username,std::string name,std::string surname,double accountBalace): accountBalace(accountBalace), isAnyRenalActive(UNACTIVE){
-                this->username = new std::string(username);
-                this->name = new std::string(name);
-                this->surname = new std::string(surname);
+                this->username = username;
+                this->name = name;
+                this->surname = surname;
 
                 if(accountBalace >= 20){
                         this->isAccountActive = ACTIVE;
@@ -15,29 +16,30 @@
         }
 
         Customer::~Customer(){
-                delete username;
-                delete name;
-                delete surname;
         }
-        std::string Customer::getUsername()const{return *username;}
-        std::string Customer::getName(){return *name;}
-        std::string Customer::getSurname(){return *surname;}
+        std::string Customer::getUsername()const{return username;}
+        std::string Customer::getName(){return name;}
+        std::string Customer::getSurname(){return surname;}
         double Customer::getAccountBalace(){ return accountBalace;}
         std::list<RentalData> Customer::getUserRentalHistory(){return userRentalHistory;}
         STATUS Customer::getIsAnyRenalActive(){return isAnyRenalActive;}
         STATUS Customer::getIsAccountActive(){return isAccountActive;}
 
         void Customer::updateUsername(std::string x){
-                delete username;
-                this->username = new std::string(x);
+                this->username = x;
         }
         void Customer::updateName(std::string x){
-                delete name;
-                this->name = new std::string(x);
+
+                this->name = x;
         }
+
+        int Customer::getactiveCustomersAmount(){
+            return activeCustomersAmount;
+        }
+
         void Customer::updateSurname(std::string x){
-                delete surname;
-                this->surname = new std::string(x);
+
+                this->surname = x;
         }
         void Customer::updateAccountBalace(double x){
                 this-> accountBalace = x;
@@ -83,9 +85,9 @@
                         getchar();
                         
                         if( print_type == 'D' || print_type == 'd'){
-                                out << std::left<< std::setw(nameWidth) << "Customer username:" << *x.username << std::endl;
-                                out << std::left<< std::setw(nameWidth) << "Customer name:" << *x.name << std::endl;
-                                out << std::left<< std::setw(nameWidth) << "Customer surname:" << *x.surname << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Customer username:" << x.username << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Customer name:" << x.name << std::endl;
+                                out << std::left<< std::setw(nameWidth) << "Customer surname:" << x.surname << std::endl;
                                 out << std::left<< std::setw(nameWidth) << "Customer balance:" << x.accountBalace << std::endl;     
                                 out << std::left<< std::setw(nameWidth) << "Customer active rental:" << x.isAnyRenalActive << std::endl;     
                                 out << std::left<< std::setw(nameWidth) << "Customer account status:" << x.isAccountActive << std::endl;     

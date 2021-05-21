@@ -4,14 +4,13 @@
         int Employee::totalCarsFueled = 0;
         Employee * Employee::mostCarsFueled = nullptr;
 
-        Employee::Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars, Localization currentLocalization): name(name), surname(surname), phoneNumber(phoneNumber), employeeID(employeeAmount+1), fueledCars(fueledCars), currentLocalization(currentLocalization) {
+        Employee::Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars): name(name), surname(surname), phoneNumber(phoneNumber), employeeID(employeeAmount+1), fueledCars(fueledCars) {
                 employeeAmount++;
         }
         Employee::~Employee(){
                 employeeAmount--;
         }
-
-        std::string Employee::getName(){
+        std::string Employee::getName()const{
                 return name;
         }
         std::string Employee::getSurname(){
@@ -23,9 +22,7 @@
         int Employee::getFueledCars(){
                 return fueledCars;
         }
-        Localization Employee::getCurrentLocalization(){
-                return currentLocalization;
-        }
+
         void Employee::updateName(std::string x){
                 this->name = x;
         }
@@ -40,9 +37,6 @@
                 totalCarsFueled -= temp;
                 this->fueledCars += x;
                 totalCarsFueled += x;
-        }
-        void Employee::updateCurrentLocalization(Localization x){
-                this->currentLocalization = x;
         }
 
         bool Employee::operator==(const Employee& x){
@@ -60,8 +54,6 @@
                 out << std::left<< std::setw(nameWidth) << "Employee surname:" << x.surname << std::endl;
                 out << std::left<< std::setw(nameWidth) << "Employee phone number:" << x.phoneNumber << std::endl;
                 out << std::left<< std::setw(nameWidth) << "Cars employee fueled:" << x.fueledCars << std::endl;
-                out << std::left<< std::setw(nameWidth) << "Employee localization:" << x.currentLocalization.latitude << ", " <<x.currentLocalization.longitude << std::endl;
-
 
                 return out;
         }

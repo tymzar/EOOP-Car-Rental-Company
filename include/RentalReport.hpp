@@ -13,16 +13,15 @@ class RentalReport{
     static double avgTravelledDistance;
     static int avgRentalTime;
     static int totalRentals;
+    
     double travelledDistance;
     double userCharge;
     double usedFuel;
-    Localization startPoint;
-    Localization endPoint;
     time_t startTime;
     time_t endTime;
 
     public:
-        RentalReport(double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime);
+        RentalReport(double travelledDistance, double userCharge, double usedFuel, time_t startTime, time_t endTime);
         ~RentalReport();
         double getTravelledDistance();
         double getAvgTravelledDistance();
@@ -31,15 +30,11 @@ class RentalReport{
         double getUsedFuel();
         double getUserCharge();
         double getTotalUserCharge();
-        Localization getStartPoint();
-        Localization getEndPoint();
         time_t getStartTime();
         time_t getEndTime();
         void updateTravelledDistance(double x);
         void updateUsedFuel(double x);
         void updateUserCharge(double x);
-        void updateStartPoint(Localization x);
-        void updateEndPoint(Localization x);
         void updateStartTime(time_t x);
         void updateEndTime(time_t x);
         void updateTotalUserCharge(double customerCharge, double oldcustomerCharge = 0);

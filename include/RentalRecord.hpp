@@ -13,13 +13,13 @@ class RentalRecord: public RentalData{
     Customer * rentee;
 
     public:
-        RentalRecord(  Car * rentedCar, Customer * rentee,STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime): RentalData(rentalStatus,travelledDistance,  userCharge,  usedFuel,  startPoint, endPoint,  startTime,  endTime){
+        RentalRecord(Car * rentedCar, Customer * rentee,STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, time_t startTime, time_t endTime): RentalData(rentalStatus,travelledDistance,  userCharge,  usedFuel, startTime,  endTime){
             this->rentedCar = rentedCar;
             this->rentee = rentee;
         }
         ~RentalRecord();
-        Car * getRentedCar();
-        Customer * getRentee();
+        Car * getRentedCar()const;
+        Customer * getRentee()const;
         void updateRentedCar(Car * x);
         void updateRentee(Customer * x);
 

@@ -40,17 +40,9 @@ enum OUT_CUSTOMER{
     USER_RENTAL_HISTORY,
 };
 
-typedef struct{
-    double longitude;
-    double latitude;
-} Localization;
-
     bool validateVINnumber(std::string VINnumber);
 
     std::string timeStampToTime(const time_t rawtime);
-    long int timeToTimeStamp(const std::string &str);
-    // Employee * findNearestEmployee(double x, double y);
-    double coordinatesDistanceCalculator(double x, double y, double Ex, double Ey);
-    
+    long int timeToTimeStamp(const std::string &str);   
 
 #endif

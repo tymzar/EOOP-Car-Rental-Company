@@ -12,9 +12,9 @@ class Customer{
 
     static int activeCustomersAmount;
 
-    std::string * username;
-    std::string * name;
-    std::string * surname;
+    std::string username;
+    std::string name;
+    std::string surname;
     double accountBalace;
     std::list<RentalData> userRentalHistory;
     STATUS isAnyRenalActive;
@@ -30,6 +30,7 @@ class Customer{
         std::list<RentalData> getUserRentalHistory();
         STATUS getIsAnyRenalActive();
         STATUS getIsAccountActive();
+        int getactiveCustomersAmount();
         void updateUsername(std::string x);
         void updateName(std::string x);
         void updateSurname(std::string x);

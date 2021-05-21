@@ -5,10 +5,10 @@
                 delete rentee;
                 std::cout << "Rental data removed!"<<std::endl;
         }
-        Car * RentalRecord::getRentedCar(){
+        Car * RentalRecord::getRentedCar()const{
                 return rentedCar;
         }
-        Customer * RentalRecord::getRentee(){
+        Customer * RentalRecord::getRentee()const{
                 return rentee;
         }
         void RentalRecord::updateRentedCar(Car * x){
@@ -18,7 +18,7 @@
                 this->rentee = x;
         }
 
-        std::ostream& operator<<(std::ostream& out, RentalRecord& x){
+        std::ostream& operator<<(std::ostream& out, const RentalRecord& x){
                 const int nameWidth     = 25;
                 
                 char print_type = '\0';
@@ -27,7 +27,6 @@
 
                 while((print_type = getchar()))
                 {
-                        getchar();
                         
                         if( print_type == 'O' || print_type == 'o'){
                                 out << std::left<< std::setw(nameWidth) << "Rental ID:" << x.getRentalDataID() << std::endl;

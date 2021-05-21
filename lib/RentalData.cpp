@@ -2,8 +2,8 @@
 
         int RentalData::totalRentals = 0;
 
-        RentalData::RentalData(STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime):rentalDataID(++totalRentals),rentalStatus(rentalStatus)  {
-                this->rentalDetails = new RentalReport(travelledDistance, userCharge, usedFuel, startPoint, endPoint, startTime, endTime );
+        RentalData::RentalData(STATUS rentalStatus,double travelledDistance, double userCharge, double usedFuel, time_t startTime, time_t endTime):rentalDataID(++totalRentals),rentalStatus(rentalStatus)  {
+                this->rentalDetails = new RentalReport(travelledDistance, userCharge, usedFuel, startTime, endTime );
         }
         RentalData::~RentalData(){
                 totalRentals--;
@@ -11,13 +11,13 @@
                 std::cout << "Rental data removed!"<<std::endl;
         }
 
-        int RentalData::getRentalDataID(){ 
+        int RentalData::getRentalDataID()const{ 
                 return rentalDataID;
         }
-        STATUS RentalData::getRentalStatus(){
+        STATUS RentalData::getRentalStatus()const{
                 return rentalStatus;
         }
-        RentalReport * RentalData::getRentalDetails(){
+        RentalReport * RentalData::getRentalDetails()const{
                 return rentalDetails;
         }
 
@@ -42,7 +42,6 @@
 
                 while((print_type = getchar()))
                 {
-                        getchar();
                         
                         if( print_type == 'O' || print_type == 'o'){
                                 out << std::left<< std::setw(nameWidth) << "Rental ID:" << x.rentalDataID << std::endl;
