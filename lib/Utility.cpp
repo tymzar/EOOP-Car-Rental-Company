@@ -2,6 +2,7 @@
 
 bool validateVINnumber(std::string VINnumber){
 
+        return true;
 }
 
 std::string timeStampToTime(const time_t rawtime)

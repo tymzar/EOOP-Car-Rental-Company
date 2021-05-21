@@ -14,23 +14,30 @@ class Employee{
     std::string phoneNumber;
     int employeeID;
     int fueledCars;
-    Localization currentLocalization;
 
     public:
-        Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars, Localization currentLocalization);
+        Employee(std::string name, std::string surname, std::string phoneNumber, int fueledCars);
         ~Employee();
-        std::string getName();
+        std::string getName()const;
         std::string getSurname();
-        std::string getPhoneNumber();
+        std::string getPhoneNumber()const;
         int getEmployeeID();
         int getFueledCars();
-        Localization getCurrentLocalization();
+        int getEmployeeAmount(){
+            return employeeAmount;
+        }
+        int getTotalCarsFueled(){
+            return totalCarsFueled;
+        }
+        Employee * getMostCarsFueed(){
+            return mostCarsFueled;
+        }
         void updateName(std::string x);
         void updateSurname(std::string x);
         void updatePhoneNumber(std::string x);
         void updateFueledCars(int x);
-        void updateCurrentLocalization(Localization x);
 
+        bool operator==(const Employee& x);
         friend std::ostream& operator<<(std::ostream& out, const Employee& x);
 };
 

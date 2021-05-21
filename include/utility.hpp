@@ -1,5 +1,6 @@
 #ifndef UTILITY_HPP
 #define UTILITY_HPP
+#define _USE_MATH_DEFINES
 
 #include <stdio.h>
 #include <time.h>
@@ -7,6 +8,7 @@
 #include <string>
 #include <ctime>
 #include <cstring>
+#include <cmath>
 
 enum MANUFACTURER{
     AUDI,
@@ -16,6 +18,7 @@ enum MANUFACTURER{
     FORD,
     HONDA,
     VOLKSWAGEN,
+    TESLA,
 
 };
 
@@ -37,15 +40,9 @@ enum OUT_CUSTOMER{
     USER_RENTAL_HISTORY,
 };
 
-typedef struct{
-    double longitude;
-    double latitude;
-} Localization;
-
     bool validateVINnumber(std::string VINnumber);
 
     std::string timeStampToTime(const time_t rawtime);
-    long int timeToTimeStamp(const std::string &str);
-
+    long int timeToTimeStamp(const std::string &str);   
 
 #endif

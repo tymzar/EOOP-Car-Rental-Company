@@ -21,7 +21,7 @@
          * @param endTime Time when the rental finished
          * 
          */
-        RentalReport::RentalReport(double travelledDistance, double userCharge, double usedFuel, Localization startPoint, Localization endPoint, time_t startTime, time_t endTime): travelledDistance(travelledDistance), userCharge(userCharge), usedFuel(usedFuel), startPoint(startPoint), endPoint(endPoint), startTime(startTime), endTime(endTime) {
+        RentalReport::RentalReport(double travelledDistance, double userCharge, double usedFuel, time_t startTime, time_t endTime): travelledDistance(travelledDistance), userCharge(userCharge), usedFuel(usedFuel), startTime(startTime), endTime(endTime) {
                 totalRentals++;
                 updateTotalUserCharge(userCharge);
                 updateAvgTravelledDistance(travelledDistance);
@@ -33,7 +33,6 @@
          * 
          */
         RentalReport::~RentalReport(){
-                std::cout<< "Rental Report Removed!"<<std::endl;
                 updateTotalUserCharge(0,userCharge);
                 updateAvgTravelledDistance(0, travelledDistance);
                 updateAvgRentalTime(startTime, endTime);
@@ -62,18 +61,6 @@
          * @brief Get method for startPoint
          * 
          * @return startPoint 
-         */
-        Localization RentalReport::getStartPoint(){return startPoint;}
-        /**
-         * @brief Get method for endPoint
-         * 
-         * @return endPoint 
-         */
-        Localization RentalReport::getEndPoint(){return endPoint;}
-        /**
-         * @brief Get method for endTime
-         * 
-         * @return endTime 
          */
         time_t RentalReport::getStartTime(){return endTime;}
         /**
@@ -136,24 +123,6 @@
                 double temp = this->userCharge;
                 this->userCharge = x;
                 updateTotalUserCharge(x, temp);
-        }
-
-        /**
-         * @brief Method responsible for updating value of startPoint
-         * 
-         * @param startPoint
-         */
-        void RentalReport::updateStartPoint(Localization x){
-                this->startPoint = x;
-        }
-
-        /**
-         * @brief Method responsible for updating value of endPoint
-         * 
-         * @param endPoint
-         */
-        void RentalReport::updateEndPoint(Localization x){
-                this->endPoint = x;
         }
 
         /**
@@ -234,16 +203,16 @@
          * @return ostream& 
          */
         std::ostream& operator<<(std::ostream& out, const RentalReport& x){
-                const char separator    = ' ';
                 const int nameWidth     = 25;
                 
+                std::string strStartTime, strEndTime;
+                strStartTime = timeStampToTime(x.startTime);
+                strEndTime = timeStampToTime(x.endTime);
                 out << std::left<< std::setw(nameWidth) << "Car travelled distace:" << x.travelledDistance << std::endl;
                 out << std::left<< std::setw(nameWidth) << "Fuel burned:" << x.usedFuel << std::endl;
                 out << std::left<< std::setw(nameWidth) << "Customer paid:" << x.userCharge << std::endl;
-                out << std::left<< std::setw(nameWidth) << "Rental started at:" << timeStampToTime(x.startTime) << std::endl;
-                out << std::left<< std::setw(nameWidth) << "Rental ended at:" << timeStampToTime(x.endTime) << std::endl;
-                out << std::left<< std::setw(nameWidth) << "Car started form:" << x.startPoint.latitude << ", " <<x.startPoint.longitude << std::endl;
-                out << std::left<< std::setw(nameWidth) << "Car ended at:"  << x.endPoint.latitude << ", " <<x.endPoint.longitude << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Rental started at:" << strStartTime << std::endl;
+                out << std::left<< std::setw(nameWidth) << "Rental ended at:" << strEndTime << std::endl;
 
                 return out;
         }

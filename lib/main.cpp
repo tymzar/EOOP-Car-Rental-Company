@@ -2,5 +2,9 @@
  using namespace std;
 
 int main(){
-    CarRentalCompany test = CarRentalCompany();
+
+    CarRentalCompany * CRC = new CarRentalCompany();
+
+    CRC->displayMenu();
+
 }
